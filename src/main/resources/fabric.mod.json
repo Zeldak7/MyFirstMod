@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "myfirstmod",
+	"version": "${version}",
+	"name": "MyFirstMod",
+	"description": "First mod of Zeldak",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "MIT",
+	"icon": "assets/myfirstmod/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"net.zeldak7.myfirstmod.MyFirstMod"
+		],
+		"client": [
+			"net.zeldak7.myfirstmod.MyFirstModClient"
+		],
+		"fabric-datagen": [
+			"net.zeldak7.myfirstmod.MyFirstModDataGenerator"
+		]
+	},
+	"mixins": [
+		"myfirstmod.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.7",
+		"minecraft": "~1.20.4",
+		"java": ">=17",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
