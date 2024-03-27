@@ -10,12 +10,11 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.zeldak7.myfirstmod.MyFirstMod;
-
-
+import net.zeldak7.myfirstmod.item.custom.FireStaffItem;
 
 
 public class ModItems {
-    public static final Item FIRESTAFF = registerItem("firestaff", new Item(new FabricItemSettings()));
+    public static final Item FIRESTAFF = registerItem("firestaff", new FireStaffItem(new FabricItemSettings().maxDamage(64)));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries){
         entries.add(FIRESTAFF);
