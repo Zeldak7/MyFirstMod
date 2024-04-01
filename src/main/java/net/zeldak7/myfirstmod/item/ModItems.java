@@ -11,10 +11,12 @@ import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.zeldak7.myfirstmod.MyFirstMod;
 import net.zeldak7.myfirstmod.item.custom.FireStaffItem;
+import net.zeldak7.myfirstmod.item.custom.TeleportationStaffItem;
 
 
 public class ModItems {
     public static final Item FIRESTAFF = registerItem("firestaff", new FireStaffItem(new FabricItemSettings().maxDamage(64)));
+    public static final Item TELEPORTATIONSTAFF = registerItem("teleportationstaff", new TeleportationStaffItem(new FabricItemSettings().maxDamage(64)));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries){
         entries.add(FIRESTAFF);

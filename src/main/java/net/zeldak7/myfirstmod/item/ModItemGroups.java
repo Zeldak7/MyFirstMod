@@ -18,6 +18,7 @@ public class ModItemGroups {
             FabricItemGroup.builder().displayName(Text.translatable("itemgroup.firestaff"))
                     .icon(() -> new ItemStack(ModItems.FIRESTAFF)).entries((displayContext, entries) -> {
                         entries.add(ModItems.FIRESTAFF);
+                        entries.add(ModItems.TELEPORTATIONSTAFF);
 
                     }).build());
 
