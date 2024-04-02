@@ -2,7 +2,7 @@
   "parent": "item/generated",
 
   "textures": {
-    "layer0": "myfirstmod:item/firestaff"
+    "layer0": "myfirstmod:item/teleportationstaff"
   }
 
 }

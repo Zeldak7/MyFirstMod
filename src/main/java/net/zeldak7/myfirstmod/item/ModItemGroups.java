@@ -14,16 +14,15 @@ import net.zeldak7.myfirstmod.MyFirstMod;
 public class ModItemGroups {
 
     public static final ItemGroup STAFF_GROUP = Registry.register(Registries.ITEM_GROUP,
-            new Identifier(MyFirstMod.MOD_ID, "firestaff"),
-            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.firestaff"))
-                    .icon(() -> new ItemStack(ModItems.FIRESTAFF)).entries((displayContext, entries) -> {
-                        entries.add(ModItems.FIRESTAFF);
+            new Identifier(MyFirstMod.MOD_ID, "staffs"),
+            FabricItemGroup.builder().displayName(Text.translatable("itemgroup.staffs"))
+                    .icon(() -> new ItemStack(ModItems.EMERGENCYSTAFF)).entries((displayContext, entries) -> {
+                        entries.add(ModItems.EMERGENCYSTAFF);
                         entries.add(ModItems.TELEPORTATIONSTAFF);
 
                     }).build());
 
     public static void registerItemGroups(){
         MyFirstMod.LOGGER.info("Registering Item Groups for "+ MyFirstMod.MOD_ID);
-
     }
 }

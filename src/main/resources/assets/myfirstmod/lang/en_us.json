@@ -1,7 +1,7 @@
 {
-  "item.myfirstmod.firestaff": "Fire Staff",
+  "item.myfirstmod.emergencystaff": "Emergency Staff",
   "item.myfirstmod.teleportationstaff": "Teleportation Staff",
 
-  "itemgroup.firestaff": "Staffs"
+  "itemgroup.emergencystaff": "Staffs"
 
 }
