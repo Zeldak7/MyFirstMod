@@ -2,6 +2,9 @@ package net.zeldak7.myfirstmod;
 
 import net.fabricmc.api.ModInitializer;
 
+import net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry;
+import net.zeldak7.myfirstmod.entity.ModEntities;
+import net.zeldak7.myfirstmod.entity.custom.WizardEntity;
 import net.zeldak7.myfirstmod.item.ModItemGroups;
 import net.zeldak7.myfirstmod.item.ModItems;
 import org.slf4j.Logger;
@@ -18,6 +21,6 @@ public class MyFirstMod implements ModInitializer {
 	public void onInitialize() {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
-
+		FabricDefaultAttributeRegistry.register(ModEntities.WIZARD, WizardEntity.setAttributes());
 	}
 }

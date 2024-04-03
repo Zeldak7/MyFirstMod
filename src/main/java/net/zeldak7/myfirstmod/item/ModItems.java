@@ -5,10 +5,12 @@ import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroupEntries;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
+import net.minecraft.item.SpawnEggItem;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 import net.zeldak7.myfirstmod.MyFirstMod;
+import net.zeldak7.myfirstmod.entity.ModEntities;
 import net.zeldak7.myfirstmod.item.custom.EmergencyStaffItem;
 import net.zeldak7.myfirstmod.item.custom.TeleportationStaffItem;
 
@@ -16,6 +18,8 @@ import net.zeldak7.myfirstmod.item.custom.TeleportationStaffItem;
 public class ModItems {
     public static final Item EMERGENCYSTAFF = registerItem("emergencystaff", new EmergencyStaffItem(new FabricItemSettings().maxDamage(64)));
     public static final Item TELEPORTATIONSTAFF = registerItem("teleportationstaff", new TeleportationStaffItem(new FabricItemSettings().maxDamage(64)));
+
+    public static final Item WIZARD_SPAWN_EGG = registerItem("wizard_spawn_egg", new SpawnEggItem(ModEntities.WIZARD, 0x0000,0x32421,new FabricItemSettings()));
 
     private static void addItemsToIngredientItemGroup(FabricItemGroupEntries entries){
         entries.add(EMERGENCYSTAFF);
