@@ -13,6 +13,8 @@ import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraft.world.chunk.Chunk;
+import net.minecraft.world.chunk.ChunkManager;
 
 
 import java.util.concurrent.ThreadLocalRandom;
@@ -20,19 +22,16 @@ import java.util.concurrent.ThreadLocalRandom;
 public class EmergencyStaffItem extends Item {
     public EmergencyStaffItem(Settings settings) {
         super(settings);
-
     }
 
     int x=0;
     int y=0;
     int z=0;
 
-    LivingEntity myEntity=null;
     BlockPos randomPos=null;
 
     @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        myEntity=null;
         if (!context.getWorld().isClient()){
             World world= context.getWorld();
             PlayerEntity player= context.getPlayer();
@@ -52,18 +51,16 @@ public class EmergencyStaffItem extends Item {
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
-
-        System.out.println("Clicked on " + entity.getName() );
         World world=user.getWorld();
-        int x=ThreadLocalRandom.current().nextInt(-100000, 100000 + 1);
-        int y=ThreadLocalRandom.current().nextInt(-100000, 100000 + 1);
-        int z=20;
-        BlockPos pos=new BlockPos(x,z,y);
-        entity.requestTeleport(x,z,y);
+        BlockPos pos=randomBlockPos(x,y,z);
+        world.getBlockState(pos);
+        while (world.getBlockState(pos).getBlock()!=Blocks.AIR && pos.getY()<250){                                                          //check if block is air //TODO nether and end dimension
+            pos=new BlockPos(pos.getX(),pos.getY()+5,pos.getZ());                                     //if so gaining height
+            System.out.println("x: "+pos.getX() + "y: "+ pos.getY()+"z: "+pos.getZ());
+        }
+        entity.requestTeleport(pos.getX(),pos.getY(),pos.getZ());
         entity.setCustomName(Text.of("Teleported"));
         entity.setCustomNameVisible(true);
-        System.out.println("Teleportet to x: "+x+ " y: "+y+ " z: "+z);
-
         return ActionResult.SUCCESS;
     }
 
