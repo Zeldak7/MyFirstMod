@@ -7,6 +7,8 @@ import net.zeldak7.myfirstmod.entity.ModEntities;
 import net.zeldak7.myfirstmod.entity.custom.WizardEntity;
 import net.zeldak7.myfirstmod.item.ModItemGroups;
 import net.zeldak7.myfirstmod.item.ModItems;
+import net.zeldak7.myfirstmod.world.gen.ModEntityGeneration;
+import net.zeldak7.myfirstmod.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,5 +24,6 @@ public class MyFirstMod implements ModInitializer {
 		ModItemGroups.registerItemGroups();
 		ModItems.registerModItems();
 		FabricDefaultAttributeRegistry.register(ModEntities.WIZARD, WizardEntity.setAttributes());
+		ModWorldGeneration.genrateModWorldGen();
 	}
 }

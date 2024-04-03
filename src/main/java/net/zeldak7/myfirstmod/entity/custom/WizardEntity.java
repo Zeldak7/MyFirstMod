@@ -5,10 +5,7 @@ import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.DefaultAttributeContainer;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.mob.BlazeEntity;
-import net.minecraft.entity.passive.AnimalEntity;
-import net.minecraft.entity.passive.ChickenEntity;
-import net.minecraft.entity.passive.MerchantEntity;
-import net.minecraft.entity.passive.PassiveEntity;
+import net.minecraft.entity.passive.*;
 import net.minecraft.entity.player.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.world.World;
@@ -33,6 +30,7 @@ public class WizardEntity extends AnimalEntity implements GeoEntity {
                 .add(EntityAttributes.GENERIC_MAX_HEALTH, 16.0D)
                 .add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 4.0f)
                 .add(EntityAttributes.GENERIC_ATTACK_SPEED, 2.0f)
+                .add(EntityAttributes.GENERIC_FLYING_SPEED, 2f)
                 .add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.4f);
     }
 
@@ -43,7 +41,7 @@ public class WizardEntity extends AnimalEntity implements GeoEntity {
         this.goalSelector.add(3, new WanderAroundFarGoal(this, 0.75f, 1));
 
         this.goalSelector.add(4, new LookAroundGoal(this));
-
+        this.targetSelector.add(3, new ActiveTargetGoal<>(this, VillagerEntity.class, true));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, PlayerEntity.class, true));
         this.targetSelector.add(2, new ActiveTargetGoal<>(this, MerchantEntity.class, true));
         this.targetSelector.add(3, new ActiveTargetGoal<>(this, ChickenEntity.class, true));
@@ -68,6 +66,7 @@ public class WizardEntity extends AnimalEntity implements GeoEntity {
             tAnimationState.getController().setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
             return PlayState.CONTINUE;
         }
+
 
 
 
