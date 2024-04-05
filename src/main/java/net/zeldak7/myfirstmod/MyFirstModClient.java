@@ -9,5 +9,6 @@ public class MyFirstModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         EntityRendererRegistry.register(ModEntities.WIZARD, WizardRenderer::new);
+
     }
 }
